@@ -1,0 +1,244 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Lon_Scriptsold.q	Sat Apr 25 14:21:14 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Lon_Scripts.q	Sat Apr 25 14:15:12 2026
+@@ -793,0 +794,3 @@
++  if not GetFlag flag = FLAG_LON_ELE_INTROFINISHED
++    SpawnScript Lon_Stompy_SkipIntro_dialog
++  endif
+@@ -878,0 +882,25 @@
++script Lon_Stompy_SkipIntro_dialog
++  create_speech_box {
++    text = "Press \m0 to skip"
++    pad_choose_script = Lon_Stompy_SkipIntro_activate
++    pad_choose_params = { Bait_Camera = <Bait_Camera> }
++  }
++endscript
++script Lon_Stompy_SkipIntro_activate
++  speech_box_exit
++  KillSpawnedScript Lon_Stompy_Start_Movie
++  KillSpawnedScript Lon_Stompy_CheckIntro
++  KillSkaterCamAnim name = G_Gap2_CameraStart
++  KillSkaterCamAnim name = Lon_Cam_Stompy_FollowTruck
++  KillSkaterCamAnim name = Lon_Cam_Stompy_FrontTruck
++  KillSkaterCamAnim name = Lon_Cam_Stompy_BehindTruck
++  KillSkaterCamAnim name = Lon_Cam_Stompy_Zoo01
++  KillSkaterCamAnim name = Lon_Cam_Stompy_Zoo02
++  KillSkaterCamAnim name = Lon_Cam_Stompy_Zoo03
++  KillSkaterCamAnim name = Lon_Cam_Stompy_Zoo04
++  Wait 1 frame
++  PlaySkaterCamAnim skater = 0 stop
++  KillSkaterCamAnim skaterId = 0
++  KillSkater
++  MakeSkaterGoto SkaterInit
++endscript
+@@ -1130,2 +1158 @@
+-    randomnorepeat( @@
+-    @Obj_PlayStream prot_picket01 dropoff = 200
++    randomnorepeat( @@@Obj_PlayStream prot_picket01 dropoff = 200
+@@ -1379,2 +1406 @@
+-    random( @
+-    Obj_CycleAnim Anim = Idle
++    random( @Obj_CycleAnim Anim = Idle
+@@ -1391,2 +1417 @@
+-    random( @
+-    Obj_CycleAnim Anim = Idle
++    random( @Obj_CycleAnim Anim = Idle
+@@ -1500,2 +1525 @@
+-    randomnorepeat( @
+-    Obj_CycleAnim Anim = Ped_Cop_Idle1
++    randomnorepeat( @Obj_CycleAnim Anim = Ped_Cop_Idle1
+@@ -1523,2 +1547 @@
+-      Obj_PlayStream vol = 250 random( @
+-      Copper_Attack01
++      Obj_PlayStream vol = 250 random( @Copper_Attack01
+@@ -1633,2 +1656 @@
+-          PlayStream vol = 280 random( @
+-          Copper_Hat01
++          PlayStream vol = 280 random( @Copper_Hat01
+@@ -1782,2 +1804 @@
+-        Obj_PlayStream vol = 300 randomnorepeat( @
+-        Copper_Skitch01
++        Obj_PlayStream vol = 300 randomnorepeat( @Copper_Skitch01
+@@ -1815,2 +1836 @@
+-        Obj_PlayStream vol = 300 randomnorepeat( @
+-        Copper_Skitch01
++        Obj_PlayStream vol = 300 randomnorepeat( @Copper_Skitch01
+@@ -2203,2 +2223 @@
+-    Create name = randomnorepeat( @
+-    TRG_Lon_CrazyCopper_Cop01
++    Create name = randomnorepeat( @TRG_Lon_CrazyCopper_Cop01
+@@ -2214,2 +2233 @@
+-  random( @
+-  Obj_LookAtNode name = TRG_Lon_CrazyCopper_CopNode01
++  random( @Obj_LookAtNode name = TRG_Lon_CrazyCopper_CopNode01
+@@ -2266,2 +2284 @@
+-  random( @
+-  Obj_CycleAnim Anim = Ped_M_FallDownA
++  random( @Obj_CycleAnim Anim = Ped_M_FallDownA
+@@ -2382,2 +2399 @@
+-      random( @@
+-      @Wait 20 frames
++      random( @@@Wait 20 frames
+@@ -2385,2 +2401 @@
+-      random( @
+-      Wait 20 frames
++      random( @Wait 20 frames
+@@ -2480,2 +2495 @@
+-      Obj_PlayStream vol = 300 randomnorepeat( @
+-      Pimp_Ack02
++      Obj_PlayStream vol = 300 randomnorepeat( @Pimp_Ack02
+@@ -2489,2 +2503 @@
+-      Obj_PlayStream vol = 300 randomnorepeat( @
+-      Pimp_Lose01
++      Obj_PlayStream vol = 300 randomnorepeat( @Pimp_Lose01
+@@ -2496,2 +2509 @@
+-      Obj_PlayStream vol = 300 randomnorepeat( @
+-      Pimp_Win01
++      Obj_PlayStream vol = 300 randomnorepeat( @Pimp_Win01
+@@ -2502,2 +2514 @@
+-      Obj_PlayStream vol = 300 randomnorepeat( @
+-      Pimp_Mid01
++      Obj_PlayStream vol = 300 randomnorepeat( @Pimp_Mid01
+@@ -2520,2 +2531 @@
+-    Obj_PlayStream vol = 300 randomnorepeat( @@
+-    @Pimp_Far01
++    Obj_PlayStream vol = 300 randomnorepeat( @@@Pimp_Far01
+@@ -2531,2 +2541 @@
+-    random( @
+-    Obj_CycleAnim Anim = Cheer
++    random( @Obj_CycleAnim Anim = Cheer
+@@ -2630,2 +2639 @@
+-        random( @
+-        PlayAnim Anim = BoardClap BlendPeriod = 0.3
++        random( @PlayAnim Anim = BoardClap BlendPeriod = 0.3
+@@ -2646,2 +2654 @@
+-        random( @
+-        PlayAnim Anim = BoardShrug BlendPeriod = 0.3
++        random( @PlayAnim Anim = BoardShrug BlendPeriod = 0.3
+@@ -2672,2 +2679 @@
+-        random( @
+-        PlayAnim Anim = BoardClap
++        random( @PlayAnim Anim = BoardClap
+@@ -2688,2 +2694 @@
+-        random( @
+-        PlayAnim Anim = BoardShrug BlendPeriod = 0.3
++        random( @PlayAnim Anim = BoardShrug BlendPeriod = 0.3
+@@ -2721,2 +2726 @@
+-  random( @
+-  Obj_CycleAnim Anim = Ped_M_FallDownA
++  random( @Obj_CycleAnim Anim = Ped_M_FallDownA
+@@ -2767,2 +2771 @@
+-        random( @
+-        Obj_CycleAnim Anim = Ped_M_Cheering
++        random( @Obj_CycleAnim Anim = Ped_M_Cheering
+@@ -2774,2 +2777 @@
+-        random( @
+-        Obj_CycleAnim Anim = Ped_M_Talk_Shrug
++        random( @Obj_CycleAnim Anim = Ped_M_Talk_Shrug
+@@ -2787,17 +2789,20 @@
+-    random( @
+-    
+-    begin
+-      if TRG_Lon_Bitch_Left:Obj_AnimEquals Ped_Bitches_Slap2
+-        random( @
+-        Obj_CycleAnim Anim = Ped_M_Wave
+-        @Obj_CycleAnim Anim = Ped_M_Cheering
+-        @Obj_CycleAnim Anim = Ped_M_Clap
+-        @Obj_CycleAnim Anim = Ped_M_Idle1
+-        @Obj_CycleAnim Anim = Ped_M_ShakeFist
+-        @Obj_CycleAnim Anim = Ped_M_ThumbUp
+-         ) 
+-        Obj_PlayAnim Anim = Ped_M_Idle1 Cycle
+-        begin
+-          if TRG_Lon_Bitch_Left:Obj_AnimEquals Ped_Bitches_Slap2
+-          else
+-            break
++    Create prefix = Lon_Bitch_Spectator_RNG random( @1 @2 ) 
++    if Lon_Bitch_Spectator_RNG = 1
++      begin
++        if TRG_Lon_Bitch_Left:Obj_AnimEquals Ped_Bitches_Slap2
++          random( @Obj_CycleAnim Anim = Ped_M_Wave
++          @Obj_CycleAnim Anim = Ped_M_Cheering
++          @Obj_CycleAnim Anim = Ped_M_Clap
++          @Obj_CycleAnim Anim = Ped_M_Idle1
++          @Obj_CycleAnim Anim = Ped_M_ShakeFist
++          @Obj_CycleAnim Anim = Ped_M_ThumbUp
++           ) Obj_PlayAnim Anim = Ped_M_Idle1 Cycle
++          begin
++            if TRG_Lon_Bitch_Left:Obj_AnimEquals Ped_Bitches_Slap2
++            else
++              break
++            endif
++            Wait 5 frames
++          repeat
++        else
++          if TRG_Lon_Bitch_Left:Obj_AnimEquals Ped_F_Knockdown
+@@ -2805,4 +2809,0 @@
+-          Wait 5 frames
+-        repeat
+-      else
+-        if TRG_Lon_Bitch_Left:Obj_AnimEquals Ped_F_Knockdown
+@@ -2810,22 +2811,24 @@
+-      endif
+-      if Obj_FlagSet FLAG_LON_BITCH_STOP
+-        break
+-      endif
+-      Wait 5 frames
+-    repeat
+-    @
+-    begin
+-      if TRG_Lon_Bitch_Right:Obj_AnimEquals Ped_Bitches_Slap2
+-        random( @
+-        Obj_CycleAnim Anim = Ped_M_Wave
+-        @Obj_CycleAnim Anim = Ped_M_Cheering
+-        @Obj_CycleAnim Anim = Ped_M_Clap
+-        @Obj_CycleAnim Anim = Ped_M_Idle1
+-        @Obj_CycleAnim Anim = Ped_M_ShakeFist
+-        @Obj_CycleAnim Anim = Ped_M_ThumbUp
+-         ) 
+-        Obj_PlayAnim Anim = Ped_M_Idle1 Cycle
+-        begin
+-          if TRG_Lon_Bitch_Right:Obj_AnimEquals Ped_Bitches_Slap2
+-          else
+-            break
++        if Obj_FlagSet FLAG_LON_BITCH_STOP
++          break
++        endif
++        Wait 5 frames
++      repeat
++    else
++      begin
++        if TRG_Lon_Bitch_Right:Obj_AnimEquals Ped_Bitches_Slap2
++          random( @Obj_CycleAnim Anim = Ped_M_Wave
++          @Obj_CycleAnim Anim = Ped_M_Cheering
++          @Obj_CycleAnim Anim = Ped_M_Clap
++          @Obj_CycleAnim Anim = Ped_M_Idle1
++          @Obj_CycleAnim Anim = Ped_M_ShakeFist
++          @Obj_CycleAnim Anim = Ped_M_ThumbUp
++           ) Obj_PlayAnim Anim = Ped_M_Idle1 Cycle
++          begin
++            if TRG_Lon_Bitch_Right:Obj_AnimEquals Ped_Bitches_Slap2
++            else
++              break
++            endif
++            Wait 5 frames
++          repeat
++        else
++          if TRG_Lon_Bitch_Right:Obj_AnimEquals Ped_F_Knockdown
+@@ -2833,4 +2835,0 @@
+-          Wait 5 frames
+-        repeat
+-      else
+-        if TRG_Lon_Bitch_Right:Obj_AnimEquals Ped_F_Knockdown
+@@ -2838,6 +2837,6 @@
+-      endif
+-      if Obj_FlagSet FLAG_LON_BITCH_STOP
+-        break
+-      endif
+-      Wait 5 frames
+-    repeat
++        if Obj_FlagSet FLAG_LON_BITCH_STOP
++          break
++        endif
++        Wait 5 frames
++      repeat
++    endif

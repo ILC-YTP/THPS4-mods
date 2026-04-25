@@ -1,0 +1,213 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Alc_Scripts - Copy.q	Sat Apr 25 14:14:13 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Alc_Scripts.q	Sat Apr 25 14:14:26 2026
+@@ -244,2 +244 @@
+-      random( @
+-      SendFlag name = TRG_MG_BaseBall_Ball OBJFLAG_PITCHCENTER
++      random( @SendFlag name = TRG_MG_BaseBall_Ball OBJFLAG_PITCHCENTER
+@@ -250,2 +249 @@
+-       ) 
+-    endif
++     ) endif
+@@ -273,2 +271 @@
+-    random( @
+-    Obj_MoveToRelPos (0, 500, -100) speed = 50
++    random( @Obj_MoveToRelPos (0, 500, -100) speed = 50
+@@ -277,2 +274 @@
+-     ) 
+-    Obj_WaitMove
++     ) Obj_WaitMove
+@@ -597,2 +593 @@
+-    random( @
+-    Obj_CycleAnim Anim = Ped_Ranger_DriveManic3
++    random( @Obj_CycleAnim Anim = Ped_Ranger_DriveManic3
+@@ -602,2 +597 @@
+-     ) 
+-  repeat
++   ) repeat
+@@ -647,2 +641 @@
+-  random( @
+-  PlayStream ranger_alc_goal_race2_skitchreq01 vol = 200
++  random( @PlayStream ranger_alc_goal_race2_skitchreq01 vol = 200
+@@ -651,2 +644 @@
+-   ) 
+-  Alc_Race2_PointArrowToTram
++   ) Alc_Race2_PointArrowToTram
+@@ -932,2 +924 @@
+-        random( @
+-        PlayStream ranger_alc_goal_race2_skitchagain01 vol = 200
++        random( @PlayStream ranger_alc_goal_race2_skitchagain01 vol = 200
+@@ -936,2 +927 @@
+-         ) 
+-        break
++         ) break
+@@ -946,2 +936 @@
+-        random( @
+-        PlayStream ranger_alc_goal_race2_skitch01 vol = 200
++        random( @PlayStream ranger_alc_goal_race2_skitch01 vol = 200
+@@ -950,2 +939 @@
+-         ) 
+-        break
++         ) break
+@@ -1025,2 +1013 @@
+-    random( @
+-    Obj_CycleAnim Anim = Ped_M_UpYours
++    random( @Obj_CycleAnim Anim = Ped_M_UpYours
+@@ -1041,2 +1028 @@
+-     ) 
+-  repeat
++   ) repeat
+@@ -1113,2 +1099 @@
+-  random( @
+-  Obj_Rotate absolute = (0, 0, 0) FLAG_MAX_COORDS
++  random( @Obj_Rotate absolute = (0, 0, 0) FLAG_MAX_COORDS
+@@ -1122,4 +1107 @@
+-   ) 
+-  random( @
+-  
+-  Obj_CycleAnim Anim = Ped_Guide_Idle1
++   ) random( @Obj_CycleAnim Anim = Ped_Guide_Idle1
+@@ -1130,2 +1112 @@
+-  @
+-  Obj_CycleAnim Anim = Ped_Guide_Idle2
++  @Obj_CycleAnim Anim = Ped_Guide_Idle2
+@@ -1135,2 +1116 @@
+-   ) 
+-  Goto Alc_DockPedWalking params = { <...> }
++   ) Goto Alc_DockPedWalking params = { <...> }
+@@ -1143,3 +1123 @@
+-    random( @
+-    
+-    Obj_CycleAnim Anim = Ped_Guide_Idle1
++    random( @Obj_CycleAnim Anim = Ped_Guide_Idle1
+@@ -1149,2 +1127 @@
+-    @
+-    Obj_CycleAnim Anim = Ped_M_LookAround
++    @Obj_CycleAnim Anim = Ped_M_LookAround
+@@ -1152,2 +1129 @@
+-    @
+-    Obj_CycleAnim Anim = Ped_Guide_Idle2
++    @Obj_CycleAnim Anim = Ped_Guide_Idle2
+@@ -1155,2 +1131 @@
+-    @
+-    Obj_CycleAnim Anim = Ped_Guide_Idle1
++    @Obj_CycleAnim Anim = Ped_Guide_Idle1
+@@ -1160,2 +1135 @@
+-    @
+-    Obj_CycleAnim Anim = Ped_Guide_Idle1
++    @Obj_CycleAnim Anim = Ped_Guide_Idle1
+@@ -1166,2 +1140 @@
+-    @
+-    Obj_CycleAnim Anim = Ped_Guide_Idle2
++    @Obj_CycleAnim Anim = Ped_Guide_Idle2
+@@ -1171,2 +1144 @@
+-     ) 
+-  repeat
++   ) repeat
+@@ -1195,2 +1167 @@
+-  random( @
+-  Obj_PlayJumpAnimReg Anim = Ped_Guide_Dive1 <...>
++  random( @Obj_PlayJumpAnimReg Anim = Ped_Guide_Dive1 <...>
+@@ -1199,2 +1170 @@
+-   ) 
+-endscript
++ ) endscript
+@@ -1347,2 +1317 @@
+-    random( @
+-    Obj_PlayAnim Anim = Ped_M_Cheering
++    random( @Obj_PlayAnim Anim = Ped_M_Cheering
+@@ -1368,2 +1337 @@
+-     ) 
+-    Obj_WaitAnimFinished
++     ) Obj_WaitAnimFinished
+@@ -1752,2 +1720 @@
+-    random( @
+-    Obj_RotZ speed = -20 acceleraction = -10 FLAG_MAX_COORDS
++    random( @Obj_RotZ speed = -20 acceleraction = -10 FLAG_MAX_COORDS
+@@ -1757,2 +1724 @@
+-     ) 
+-    Wait randomrange(3, 10) seconds
++     ) Wait randomrange(3, 10) seconds
+@@ -1761,2 +1727 @@
+-    random( @
+-    Obj_RotZ speed = -20 acceleraction = -10 FLAG_MAX_COORDS
++    random( @Obj_RotZ speed = -20 acceleraction = -10 FLAG_MAX_COORDS
+@@ -1766,2 +1731 @@
+-     ) 
+-    Wait randomrange(3, 10) seconds
++     ) Wait randomrange(3, 10) seconds
+@@ -2249 +2212,0 @@
+-                      else
+@@ -2273,0 +2237,3 @@
++    if ( <current_score> > 399 )
++      create_panel_block id = Skip_Goal_reminder text = "Goal Cleared!\nEnd goal early in the pause menu." style = panel_message_kongoal
++    endif
+@@ -2283,0 +2250,11 @@
++script Alc_Goal_Gaps6_End_Early
++  if ObjectExists id = current_menu_anchor
++    exit_pause_menu
++  endif
++  GoalManager_GetGoalParams name = Alc_Goal_Gaps6
++  if ( <current_score> > 399 )
++    GoalManager_WinGoal name = Alc_Goal_Gaps6
++  else
++    GoalManager_LoseGoal name = Alc_Goal_Gaps6
++  endif
++endscript
+@@ -2426,2 +2403 @@
+-    random( @
+-    Obj_PlayAnim Anim = Ped_M_Cheering
++    random( @Obj_PlayAnim Anim = Ped_M_Cheering
+@@ -2437,2 +2413 @@
+-     ) 
+-    Obj_LookAtObject type = skater time = 0.3
++     ) Obj_LookAtObject type = skater time = 0.3
+@@ -3484,2 +3459 @@
+-    random( @
+-    Obj_PlayAnim Anim = Ped_M_Cheering
++    random( @Obj_PlayAnim Anim = Ped_M_Cheering
+@@ -3495,2 +3469 @@
+-     ) 
+-    Obj_LookAtObject type = skater time = 0.3
++     ) Obj_LookAtObject type = skater time = 0.3
+@@ -3729,2 +3702 @@
+-      random( @
+-      Obj_CycleAnim Anim = Ped_Ranger_DriveEasy1
++      random( @Obj_CycleAnim Anim = Ped_Ranger_DriveEasy1
+@@ -3732,2 +3704 @@
+-       ) 
+-      if <myTram>:Obj_FlagSet FLAG_CAR_SOUND_FRANTICSTOP
++       ) if <myTram>:Obj_FlagSet FLAG_CAR_SOUND_FRANTICSTOP
+@@ -3738,2 +3709 @@
+-      random( @
+-      Obj_CycleAnim Anim = Ped_Ranger_DriveManic3
++      random( @Obj_CycleAnim Anim = Ped_Ranger_DriveManic3
+@@ -3743,2 +3713 @@
+-       ) 
+-      if not <myTram>:Obj_FlagSet FLAG_CAR_SOUND_FRANTICSTOP
++       ) if not <myTram>:Obj_FlagSet FLAG_CAR_SOUND_FRANTICSTOP
+@@ -3754,2 +3723 @@
+-    random( @
+-    Obj_CycleAnim Anim = Ped_Ranger_DriveManic3
++    random( @Obj_CycleAnim Anim = Ped_Ranger_DriveManic3
+@@ -3759,2 +3727 @@
+-     ) 
+-  repeat
++   ) repeat
+@@ -3769,2 +3736 @@
+-    random( @
+-    Obj_PlayAnim Anim = Ped_M_Idle1
++    random( @Obj_PlayAnim Anim = Ped_M_Idle1
+@@ -3774,2 +3740 @@
+-     ) 
+-    Obj_LookAtObject type = skater time = 0.3
++     ) Obj_LookAtObject type = skater time = 0.3
+@@ -3785,2 +3750 @@
+-  random( @
+-  PlaySound columncrumble range = randomrange(90, 150) volume = 50
++  random( @PlaySound columncrumble range = randomrange(90, 150) volume = 50
+@@ -3788,2 +3752 @@
+-   ) 
+-  ShatterAndDie name = <me> area = 1000 variance = 4 vel_x = 30 vel_y = 30 vel_z = 30 spread = 1
++   ) ShatterAndDie name = <me> area = 1000 variance = 4 vel_x = 30 vel_y = 30 vel_z = 30 spread = 1
+@@ -3854 +3816,0 @@
+-    

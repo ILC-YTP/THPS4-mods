@@ -1,0 +1,303 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/SF2_Scripts - Copy.q	Sat Apr 25 14:15:34 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/SF2_Scripts.q	Fri Apr 24 11:19:49 2026
+@@ -242 +242 @@
+-    success_movie_wait_frames = 400
++    success_movie_wait_frames = 5
+@@ -1064,0 +1065 @@
++SEAL_GOAL_SKIP_ENDING = 7
+@@ -1665 +1666 @@
+-  begin
++   begin
+@@ -1667 +1668 @@
+-    Ped_Mec_Idle1 Cycle
++  Ped_Mec_Idle1 Cycle
+@@ -1670 +1671 @@
+-    Wait 2 seconds
++   Wait 2 Seconds
+@@ -2057 +2058 @@
+-    1
++  1
+@@ -2061,2 +2062,2 @@
+-    Obj_CycleAnim Anim = random( @
+-    Ped_SG_Approach
++   Obj_CycleAnim Anim = random( @
++   Ped_SG_Approach
+@@ -2065,2 +2066,2 @@
+-    random( @
+-    Obj_PlayStream husband_far01 vol = 200 dropoff = 300
++   random( @
++   Obj_PlayStream husband_far01 Vol = 200 Dropoff = 300
+@@ -2080,2 +2081,7 @@
+-     ) 
+-  repeat
++   ) 
++    If GetFlag flag = SEAL_GOAL_SKIP_ENDING
++      Wait 2 seconds
++      break
++    endif
++ repeat
++ Die
+@@ -2084,0 +2091 @@
++  Wait 120 Frames
+@@ -2125 +2132 @@
+-    Ped_Fish_Idle1
++  Ped_Fish_Idle1
+@@ -2128,15 +2135,4 @@
+-     ) 
+-    Obj_WaitAnimFinished
+-    random( @
+-    
+-    @
+-    @Obj_PlayStream random( @
+-    fisherman_sf2_random01
+-    @fisherman_sf2_random02
+-    @fisherman_sf2_random03
+-    @fisherman_sf2_random04
+-    @fisherman_sf2_random05
+-    @fisherman_sf2_random06
+-     ) 
+-    
+-  repeat
++     ) Obj_WaitAnimFinished
++    random( @@@Obj_PlayStream fisherman_sf2_random01
++   ) 
++   repeat
+@@ -2155 +2151 @@
+-  Obj_PlayAnim Anim = Ped_M_FallDownA
++   Obj_PlayAnim Anim = Ped_M_FalldownA
+@@ -2182 +2178 @@
+-  Wait 30 frames
++   Wait 30 Frames
+@@ -2219,2 +2215 @@
+-  PlayStream random( @
+-  Fisherman_SF2_Payload01 vol = 225
++  PlayStream random( @Fisherman_SF2_Payload01 Vol = 225
+@@ -2225,2 +2220 @@
+-   ) 
+-  if IsAlive name = <Box_Closed>
++   ) if IsAlive Name = <Box_Closed>
+@@ -2325,6 +2319,2 @@
+-  begin
+-    Obj_PlayStream random( @
+-    Sealbark Pitch = random( @80 @90 @100 ) 
+-    @Sealbark3 Pitch = random( @80 @90 @100 ) 
+-    @Sealhappy3 Pitch = random( @80 @90 @100 ) 
+-    
++   begin
++    Obj_PlayStream random( @Sealbark @Sealbark3 @Sealhappy3  ) Pitch = random( @80 @90 @100 ) 
+@@ -2332 +2322 @@
+-    1
++  1
+@@ -2336,2 +2326,2 @@
+-    Wait random( @
+-    0.25 seconds
++   Wait random( @
++   0.25 Seconds
+@@ -2342,4 +2332 @@
+-    Obj_PlayStream random( @
+-    Sealbark4 Pitch = random( @80 @85 @90 @95 @100 ) 
+-    @Sealhappy Pitch = random( @80 @85 @90 @95 @100 ) 
+-    
++   Obj_PlayStream random( @Sealbark4 @Sealhappy  ) Pitch = random( @80 @85 @90 @95 @100 ) 
+@@ -2433 +2420 @@
+-script SF2_Wife_Reacting
++script sf2_wife_reacting ID = WifeReact
+@@ -2446,0 +2434 @@
++    SpawnScript SF2_Wife_Kill_Dialog
+@@ -2456,0 +2445,2 @@
++    speech_box_exit
++    KillSpawnedScript SF2_Wife_Kill_Dialog
+@@ -2472,0 +2463,2 @@
++    SetSkaterCamAnimSkippable Name = <Bait_Camera>
++    SpawnScript SF2_Wife_Kill_Dialog
+@@ -2482,0 +2475,2 @@
++    KillSpawnedScript SF2_Wife_Kill_Dialog
++    speech_box_exit
+@@ -2498,0 +2493 @@
++    SpawnScript SF2_Wife_Kill_Dialog
+@@ -2508,0 +2504,2 @@
++    KillSpawnedScript SF2_Wife_Kill_Dialog
++    speech_box_exit
+@@ -2520,0 +2518,2 @@
++    SetFlag flag = SEAL_GOAL_SKIP_ENDING
++    Spawnscript SF2_Wife_Kill_Dialog
+@@ -2532,0 +2532 @@
++    speech_box_exit
+@@ -2542,0 +2543,22 @@
++script SF2_Wife_Kill_Dialog
++  create_speech_box {
++    Text = "Press FUCK to skip"
++    pad_choose_script = SF2_Wife_Kill_Activate
++    pad_choose_params = { Bait_Camera = <Bait_Camera> }
++  }
++endscript
++script SF2_Wife_Kill_Activate
++  PlaySkaterCamAnim Skater = 0 stop
++  KillSpawnedScript ID = Wife_React
++  KillSkaterCamAnim skaterId = 0
++  restore_start_key_binding
++  Skater:Unhide
++  UnPauseSkaters
++  GoalManager_UnPauseGoal Name = SF2_Goal_Counter
++  Skater:Obj_MoveToRelPos (0, 1000, 0) time = 0.001
++  speech_box_exit
++  If GetFlag flag = SEAL_GOAL_SKIP_ENDING
++    Wait 10 frames
++    SendException EX_SEAL_GO_4 Name = TRG_Ped_Seal_Husband
++  endif
++endscript
+@@ -2714,0 +2737 @@
++SKIP_SHARK = 1
+@@ -2770 +2793,4 @@
+-        PlayStream PierStress
++        if not GoalManager_GoalIsActive
++          PlayStream PierStress
++        endif
++        SpawnScript CJR_SF2_SharkPier_Break_Skip
+@@ -2772,2 +2798,6 @@
+-        if not GoalManager_HasWonGoal name = SF2_Goal_GAPS2
+-          PlaySound HitMetalCan_11 vol = 300 Pitch = 40
++        If not GetFlag flag = SKIP_SHARK
++          if not GoalManager_GoalIsActive
++            PlaySound HitMetalCan_11 vol = 300 pitch = 40
++          endif
++          SendException EX_PAINTER_SWITCH name = TRG_Ped_Painter01
++          SendException EX_PAINTER_SWITCH name = P7_Seal_Ladder
+@@ -2775,2 +2804,0 @@
+-        SendException EX_PAINTER_SWITCH name = TRG_Ped_Painter01
+-        SendException EX_PAINTER_SWITCH name = P7_Seal_Ladder
+@@ -2778,25 +2806,19 @@
+-      Kill name = P7_Platform_Norm
+-      Create name = P7_Platform_Broken_Nub
+-      Kill name = P7_Rail_Norm01
+-      Kill name = P7_Rail_Norm02
+-      Create name = P7_Rail_Broken_Nub
+-      Create name = P7_Rail_Broken01
+-      Create name = P7_Platform_Broken01
+-      Create name = P7_Rail_Broken02
+-      Create name = P7_Platform_Broken02
+-      Create name = P7_Rail_Broken03
+-      Create name = P7_Rail_Broken04
+-      Create name = P7_Platform_Broken03
+-      Kill name = P7_Sign_Norm
+-      Create name = P7_Sign_Broken
+-      Kill name = P7_Pillars_Norm
+-      Create name = P7_Pillars_Broken
+-      Wait 2 seconds
+-      StopStream
+-      Wait 1 frame
+-      PlayStream painterNeal_sf2_falling03 vol = 300
+-      Create name = TRG_Shark
+-      begin
+-        if SkaterCamAnimFinished skater = 0 name = Cam_P7_Break
+-          break
+-        endif
++      If not GetFlag flag = SKIP_SHARK
++        Kill name = P7_Platform_Norm
++        Create name = P7_Platform_Broken_Nub
++        Kill name = P7_Rail_Norm01
++        Kill name = P7_Rail_Norm02
++        Create name = P7_Rail_Broken_Nub
++        Create name = P7_Rail_Broken01
++        Create name = P7_Platform_Broken01
++        Create name = P7_Rail_Broken02
++        Create name = P7_Platform_Broken02
++        Create name = P7_Rail_Broken03
++        Create name = P7_Rail_Broken04
++        Create name = P7_Platform_Broken03
++        Kill name = P7_Sign_Norm
++        Create name = P7_Sign_Broken
++        Kill name = P7_Pillars_Norm
++        Create name = P7_Pillars_Broken
++        Wait 2 seconds
++        StopStream
+@@ -2804,6 +2826,18 @@
+-      repeat
+-      Kill prefix = "TRG_Rail_P7_Norm"
+-      Create prefix = "TRG_Rail_P7_Broken"
+-      UnPauseSkaters
+-      GoalManager_ActivateGoal name = SF2_Goal_GAPS2
+-      restore_start_key_binding
++      endif
++      If not GetFlag flag = SKIP_SHARK
++        if not GoalManager_GoalIsActive
++          PlayStream painterNeal_sf2_falling03 vol = 300
++        endif
++        Create name = TRG_Shark
++        begin
++          if SkaterCamAnimFinished Skater = 0 name = Cam_P7_Break
++            break
++          endif
++          Wait 1 frame
++        repeat
++        Kill prefix = "TRG_Rail_P7_Norm"
++        Create prefix = "TRG_Rail_P7_Broken"
++        UnPauseSkaters
++        GoalManager_ActivateGoal name = SF2_Goal_GAPS2
++        restore_start_key_binding
++      endif
+@@ -2812,0 +2847,22 @@
++
++script CJR_SF2_SharkPier_Break_Skip
++  create_speech_box {
++    Text = "Press \m0 to skip"
++    pad_choose_script = CJR_SF2_SharkPier_Break_Skip_Activate audio_skip
++    }
++endscript
++
++script CJR_SF2_SharkPier_Break_Skip_Activate
++  KillSpawnedScript CJR_SF2_SharkPier_Break
++  Kill prefix = "TRG_Rail_P7_Norm"
++  Create prefix = "TRG_Rail_P7_Broken"
++  SetFlag flag = SKIP_SHARK
++  SendException EX_PAINTER_SWITCH name = TRG_Ped_Painter01
++  SendException EX_PAINTER_SWITCH name = P7_Seal_Ladder
++  SpawnScript CJR_SF2_SharkPier_Break_Fast
++  Wait 1 frame
++  UnPauseSkaters
++  GoalManager_ActivateGoal name = SF2_Goal_GAPS2
++  restore_start_key_binding
++endscript
++
+@@ -2866 +2922,3 @@
+-  Obj_PlayStream PierBreak Pitch = 80
++  If not GetFlag flag = SKIP_SHARK
++    Obj_PlayStream PierBreak pitch = 80
++  endif
+@@ -2874,2 +2932,4 @@
+-  if not GoalManager_HasWonGoal name = SF2_Goal_GAPS2
+-    PlaySound HitMetalCan_11 vol = 130 Pitch = 60
++  If not GetFlag flag = SKIP_SHARK
++    if not GoalManager_HasWonGoal name = SF2_Goal_GAPS2
++      PlaySound HitMetalCan_11 vol = 130 pitch = 60
++    endif
+@@ -2879,2 +2939,4 @@
+-  if not GoalManager_HasWonGoal name = SF2_Goal_GAPS2
+-    PlaySound HitMetalCan_11 vol = 130 Pitch = 60
++  If not GetFlag flag = SKIP_SHARK
++    if not GoalManager_HasWonGoal name = SF2_Goal_GAPS2
++      PlaySound HitMetalCan_11 vol = 130 pitch = 60
++    endif
+@@ -2898 +2960,3 @@
+-  Obj_PlayStream Piercrash
++  If not GetFlag flag = SKIP_SHARK
++    Obj_PlayStream Piercrash
++  endif
+@@ -3532 +3595,0 @@
+-    random( @
+@@ -3534 +3597 @@
+-    Sealbark
++  Sealbark
+@@ -3538,7 +3601 @@
+-    @Obj_PlaySound vol = 30 random( @
+-    HitBody02 Pitch = random( @80 @90 @100 ) 
+-    @HitBody02 Pitch = random( @80 @90 @100 ) 
+-    @HitBody02 Pitch = random( @80 @90 @100 ) 
+-    @HitBody02 Pitch = random( @80 @90 @100 ) 
+-    
+-    
++   Obj_PlaySound Vol = 30 hitbody02 pitch = random( @80 @90 @100 ) 
+@@ -3834 +3891 @@
+-endscript
++  endscript
+\ No newline at end of file

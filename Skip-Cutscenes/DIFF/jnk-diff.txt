@@ -1,0 +1,12 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/jnk - Copy.q	Sat Apr 25 14:14:33 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/jnk.q	Sat Apr 25 14:14:39 2026
+@@ -40601,0 +40602,9 @@
++    Position = (-739.4069, 1450, 2752.992)
++    Angles = (0°, 90°, 0°)
++    name = TRG_G_GAP3_RestartNode_Skip
++    Class = Restart
++    type = Generic
++    CreatedAtStart
++    RestartName = "Gen: Restart"
++  }
++  {

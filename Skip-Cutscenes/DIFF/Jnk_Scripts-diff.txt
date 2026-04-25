@@ -1,0 +1,32 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Jnk_Scriptsold.q	Sat Apr 25 14:14:46 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Jnk_Scripts.q	Sat Apr 25 14:14:42 2026
+@@ -2195,0 +2196 @@
++  speech_box_exit
+@@ -2200,0 +2202 @@
++    SpawnScript JNK_GAP3_SKIPCUT_DIALOG
+@@ -2254,0 +2257 @@
++        speech_box_exit
+@@ -2258,0 +2262,23 @@
++endscript
++script JNK_GAP3_SKIPCUT_DIALOG
++  create_speech_box {
++    text = "Press \m0 to skip"
++    pad_choose_script = JNK_GAP3_SKIPCUT_ACTIVATE
++    pad_choose_params = { Bait_Camera = <Bait_Camera> }
++  }
++endscript
++script JNK_GAP3_SKIPCUT_ACTIVATE
++  GAPS3_LO_CRANE01_CONT:Obj_MoveToPos (3180.7, 734.7, -2714.2) time = 0.0
++  GAPS3_LO_CRANE02_CONT:Obj_MoveToPos (1187.98, 1234.7, -3802.1) time = 0.0
++  GAPS3_LO_CRANE03_CONT:Obj_MoveToPos (-1416, 1664, -3167) time = 0.0
++  GAPS3_LO_CRANE03_ARM:Obj_RotY angle = -178 speed = 9999
++  GAPS3_LO_CRANE03_CONT:Obj_RotY angle = -178 speed = 9999
++  PlaySkaterCamAnim skater = 0 stop
++  KillSkaterCamAnim skaterId = 0
++  Kill prefix = "GAPS3_LO_CRANE01_CONT"
++  Kill prefix = "GAPS3_LO_CRANE02_CONT"
++  Kill prefix = "GAPS3_LO_CRANE03_CONT"
++  Create prefix = "GAPS3_GEO2_CRANE0"
++  Wait 1 frame
++  skater:KillSkater node = TRG_G_GAP3_RestartNode_Skip
++  SpawnScript Jnk_Gap3_StartSkater

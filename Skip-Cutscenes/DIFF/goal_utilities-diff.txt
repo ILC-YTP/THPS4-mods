@@ -1,0 +1,132 @@
+@@ -205 +205 @@
+-    SpawnScript TemporarilyDisableInput
++    SpawnScript TemporarilyDisableInput params = { time = 100 }
+@@ -367 +367 @@
+-        PauseMusic 1
++        PauseMusic 0
+@@ -462 +462,5 @@
+-  SpawnScript TemporarilyDisableInput
++  if GotParam goal_start_movie_script
++    SpawnScript TemporarilyDisableInput params = { time = 2000 }
++  else
++    SpawnScript TemporarilyDisableInput
++  endif
+@@ -483 +487 @@
+-        skippable = 0
++        skippable = 1
+@@ -494 +498 @@
+-        skippable = 0
++        skippable = 1
+@@ -500 +504 @@
+-      PlaySkaterCamAnim skaterId = <skaterId> name = <Anim> skippable = 0
++      PlaySkaterCamAnim skaterId = <skaterId> name = <Anim> skippable = 1
+@@ -502 +506 @@
+-      PlaySkaterCamAnim skaterId = <skaterId> name = <Anim> play_hold skippable = 0
++      PlaySkaterCamAnim skaterId = <skaterId> name = <Anim> play_hold skippable = 1
+@@ -555,2 +558,0 @@
+-        WaitForEvent type = panel_message_new_record_done
+-        pause_trick_text
+@@ -765,0 +768,2 @@
++  KillSpawnedScript id = sf2_special
++  Kill id = TRG_G_SPECIALTrick_Husband
+@@ -1527 +1531 @@
+-  SpawnScript TemporarilyDisableInput params = { time = 5000 }
++  SpawnScript TemporarilyDisableInput params = { time = 50 }
+@@ -1623 +1627 @@
+-    Wait 2 seconds
++    Wait 1 gameframe
+@@ -1634 +1637,0 @@
+-    WaitForEvent type = panel_message_new_record_done
+@@ -1648,9 +1650,0 @@
+-    WaitForEvent type = goal_got_reward_done
+-    pause_trick_text
+-  endif
+-  if GotParam reward_trickslot
+-    if not GotParam already_added_trickslot
+-      AwardSpecialTrickSlot all
+-    endif
+-    goal_got_trickslot
+-    WaitForEvent type = goal_got_reward_done
+@@ -1664,0 +1659 @@
++    Wait 1 frame
+@@ -1674,17 +1669,6 @@
+-    WaitForEvent type = goal_got_reward_done
+-    DebugFn 765
+-    add_pause_menu_textures_to_vram
+-    create_stats_menu {
+-      pad_start = goal_stats_menu_exit
+-      pad_back_script = goal_stats_menu_exit
+-      done_button_pad_choose_script = goal_stats_menu_exit
+-      update_all_skaters = update_all_skaters
+-    }
+-    kill_start_key_binding
+-    SetScreenElementProps {
+-      id = stats_menu
+-      event_handlers = [ { pad_back goal_stats_menu_exit } ]
+-      replace_handlers
+-    }
+-    WaitForEvent type = goal_stats_menu_done
+-    DebugFn 766
++  endif
++  if GotParam reward_trickslot
++    if not GotParam already_added_trickslot
++      AwardSpecialTrickSlot all
++    endif
++    goal_got_trickslot
+@@ -1708 +1692 @@
+-  PauseMusic 1
++  PauseMusic 0
+@@ -1712,2 +1695,0 @@
+-  goal_want_to_save
+-  WaitForEvent type = goal_wait_for_save
+@@ -1754 +1736,2 @@
+-                      if not GetGlobalFlag flag = ( ( ( level_select_menu_level_info [ <index> ] ).PreReq_flags ) [ <flags_index> ] )
++                      if not GetGlobalFlag flag = ( ( ( level_select_menu_level_info [ <index> ] ).PreReq_flags )
++                          [ <flags_index> ] )
+@@ -1795,0 +1779 @@
++  KillSpawnedScript id = sf2_special
+@@ -2181 +2165 @@
+-  SpawnScript TemporarilyDisableInput params = { time = 5000 }
++  SpawnScript TemporarilyDisableInput params = { time = 1 }
+@@ -3065 +3049 @@
+-  DoMorph time = 0 pos = (320, 204) scale = 0 alpha = 0
++  DoMorph time = 0 pos = (320, 100) scale = 0 alpha = 0
+@@ -3075,4 +3059,4 @@
+-  DoMorph pos = (321, 205) time = 0.1
+-  DoMorph pos = (319, 203) time = 0.1
+-  DoMorph pos = (321, 205) time = 0.1
+-  DoMorph pos = (319, 203) time = 0.1
++  DoMorph pos = (321, 101) time = 0.1
++  DoMorph pos = (319, 99) time = 0.1
++  DoMorph pos = (321, 101) time = 0.1
++  DoMorph pos = (319, 99) time = 0.1
+@@ -3083,0 +3068,3 @@
++script panel_message_debug
++  SetProps font = large just = [ center center ] rgba [ 255 0 0 128 ]
++endscript
+@@ -3197,0 +3185,13 @@
++script panel_message_kongoal blink_time = 0.05 final_pos = (620, 100)
++  SetProps internal_just = [ center top ] rgba = [ 128 64 128 100 ] just = [ right top ]
++  DoMorph pos = <final_pos> scale = 0.78 time = 0.05
++  begin
++    DoMorph alpha = 0
++    Wait <blink_time> seconds
++    DoMorph alpha = 1
++    Wait <blink_time> seconds
++  repeat 6
++  Wait 2 seconds
++  DoMorph alpha = 0 time = 5
++  Die
++endscript
+@@ -3208 +3208 @@
+-  DoMorph time = 0 pos = (320, 214) scale = 0 alpha = 0
++  DoMorph time = 0 pos = (320, 320) scale = 0 alpha = 0
+@@ -3218,4 +3218,4 @@
+-  DoMorph pos = (321, 215) time = 0.1
+-  DoMorph pos = (319, 213) time = 0.1
+-  DoMorph pos = (321, 215) time = 0.1
+-  DoMorph pos = (319, 213) time = 0.1
++  DoMorph pos = (321, 321) time = 0.1
++  DoMorph pos = (319, 319) time = 0.1
++  DoMorph pos = (321, 321) time = 0.1
++  DoMorph pos = (319, 319) time = 0.1

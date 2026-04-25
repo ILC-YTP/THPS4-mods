@@ -1,0 +1,104 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Kon_Scripts - Copy.q	Sat Apr 25 14:15:06 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Kon_Scripts.q	Sat Apr 25 14:19:19 2026
+@@ -792,2 +792 @@
+-  Obj_PlayAnim Anim = random( @
+-  Ped_Mec_Idle1 Cycle
++  Obj_PlayAnim Anim = random( @Ped_Mec_Idle1 Cycle
+@@ -795,2 +794 @@
+-   ) 
+-endscript
++ ) endscript
+@@ -799,2 +797 @@
+-  PlayStream random( @
+-  Ollie_Avoid01
++  PlayStream random( @Ollie_Avoid01
+@@ -803,2 +800 @@
+-   ) 
+-  if GetFlag flag = FLAG_BEEN_TO_SPOT01
++   ) if GetFlag flag = FLAG_BEEN_TO_SPOT01
+@@ -914,0 +911 @@
++  GoalManager_EditGoal name = <goal_id> params = { is_tour_goal = 1 }
+@@ -921,0 +919,2 @@
++  Wait 1.5 second
++  create_panel_block id = Skip_Goal_reminder text = "Option to skip\nRest of goal now in the pause menu!" style = panel_message_kongoal
+@@ -983,0 +983,11 @@
++script Kon_Goal_Tour_Expire_3
++  if ObjectExists id = current_menu_anchor
++    exit_pause_menu
++  endif
++  KillSpawnedScript panel_message_kongoal
++  if SkaterTotalScoreGreaterThan 1000000
++    GoalManager_WinGoal name = kon_goal_tour
++  else
++    GoalManager_LoseGoal name = kon_goal_tour
++  endif
++endscript
+@@ -1366,2 +1376 @@
+-  Wait random( @
+-  5 frames
++  Wait random( @5 frames
+@@ -1371,2 +1380 @@
+-   ) 
+-  Obj_PlaySound Pigeon
++   ) Obj_PlaySound Pigeon
+@@ -1374,2 +1382 @@
+-    Obj_CycleAnim Anim = Idle numcycles = random( @
+-    1
++    Obj_CycleAnim Anim = Idle numcycles = random( @1
+@@ -1378,3 +1385 @@
+-     ) 
+-    Obj_CycleAnim Anim = Preen numcycles = random( @
+-    1
++     ) Obj_CycleAnim Anim = Preen numcycles = random( @1
+@@ -1382,2 +1387 @@
+-     ) 
+-  repeat
++   ) repeat
+@@ -1648,2 +1652 @@
+-    random( @
+-    ALF_Play_BMX_Anim_Under1_1
++    random( @ALF_Play_BMX_Anim_Under1_1
+@@ -1651,2 +1654 @@
+-     ) 
+-    Obj_WaitAnimFinished
++     ) Obj_WaitAnimFinished
+@@ -1656,2 +1658 @@
+-    random( @
+-    ALF_Play_BMX_Anim_Under1_2
++    random( @ALF_Play_BMX_Anim_Under1_2
+@@ -1659,2 +1660 @@
+-     ) 
+-    Obj_WaitAnimFinished
++     ) Obj_WaitAnimFinished
+@@ -1694,2 +1694 @@
+-    random( @
+-    ALF_Play_BMX_Anim_Under1_1
++    random( @ALF_Play_BMX_Anim_Under1_1
+@@ -1697,2 +1696 @@
+-     ) 
+-    Obj_WaitAnimFinished
++     ) Obj_WaitAnimFinished
+@@ -1702,2 +1700 @@
+-    random( @
+-    ALF_Play_BMX_Anim_Under1_2
++    random( @ALF_Play_BMX_Anim_Under1_2
+@@ -1705,2 +1702 @@
+-     ) 
+-    Obj_WaitAnimFinished
++     ) Obj_WaitAnimFinished
+@@ -2066,2 +2062 @@
+-      random( @
+-      Obj_PlayAnim Anim = Ped_M_Cheering
++      random( @Obj_PlayAnim Anim = Ped_M_Cheering
+@@ -2070,2 +2065 @@
+-       ) 
+-      Obj_LookAtObject type = skater time = 0.3
++       ) Obj_LookAtObject type = skater time = 0.3
+@@ -2077,2 +2071 @@
+-        random( @
+-        Obj_PlayAnim Anim = Ped_F_Wave
++        random( @Obj_PlayAnim Anim = Ped_F_Wave
+@@ -2081,2 +2074 @@
+-         ) 
+-        Obj_LookAtObject type = skater time = 0.3
++         ) Obj_LookAtObject type = skater time = 0.3

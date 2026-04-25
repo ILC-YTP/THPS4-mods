@@ -1,0 +1,113 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Zoo_Scripts - Copy.q	Sat Apr 25 14:15:39 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Zoo_Scripts.q	Fri Apr 24 00:31:49 2026
+@@ -728,0 +729 @@
++  KillSkaterCamAnim name = CAM_GORILLA
+@@ -801,0 +803 @@
++ZOO_ELEPHANT_SKIP = 4
+@@ -1379 +1381 @@
+-script Zoo_Scare_Elephant
++script Zoo_Scare_Elephant ID = thatdamnelephantisgoingapeshit
+@@ -1394,0 +1397 @@
++    SpawnScript Zoo_Scare_Elephant_Skip_Dialog
+@@ -1395,0 +1399 @@
++    if not GetFlag flag = ZOO_ELEPHANT_SKIP
+@@ -1431,0 +1436,2 @@
++    speech_box_exit
++    endif
+@@ -1433,0 +1440,36 @@
++script Zoo_Scare_Elephant_Skip_Dialog ID = skipstompydialog
++  create_speech_box {
++    Text = "Press \m0 to skip"
++    pad_choose_script = Zoo_Scare_Elephant_Skip_Activate
++  }
++endscript
++script Zoo_Scare_Elephant_Skip_Activate ID = skippingstompy
++  speech_box_exit
++  KillSkaterCamAnim name = CAM_ELEPHANT
++  KillSkaterCamAnim name = CAM_ELEPHANT2
++  Kill ID = "thatdamnelephantisgoingapeshit"
++  KillSpawnedscript name = Zoo_Elephant_Stampede
++  KillSpawnedscript name = Zoo_Elephant_Rearing
++  Kill prefix = "Zoo_PicnicNormal"
++  Kill prefix = "Bridge_Normal"
++  Kill prefix = "Zoo_BridgeFloor"
++  Kill prefix = "TRG_Rail_Bridge"
++  Kill name = BOARDED_01
++  Kill name = Damage_Boards
++  Kill name = TRG_Elephant_Stampede
++  Kill name = TRG_Elephant_Rearing
++  Kill name = TRG_Elephant_Trainer_Shoot
++  Create name = Zoo_PicnicDamage01
++  Create name = Damage_boards02
++  Create prefix = "FallenDoor"
++  Create prefix = "Bridge_Damaged"
++  Create prefix = "Zoo_BridgeDestroyed"
++  Create prefix = "TRG_Rail_Damage"
++  SetFlag flag = ZOO_ELEPHANT_SKIP
++  Wait 1 Frame
++  UnPauseSkaters
++  UnPauseClock
++  PlaySkaterCamAnim Skater = 0 stop
++  KillSkaterCamAnim skaterId = 0
++  TeleportSkaterDown
++endscript
+@@ -1692,4 +1734 @@
+-    Obj_PlayStream random( @
+-    Sealbark Pitch = random( @80 @90 @100 ) 
+-    @Sealbark3 Pitch = random( @80 @90 @100 ) 
+-    @Sealhappy3 Pitch = random( @80 @90 @100 ) 
++    Obj_PlayStream random( @Sealbark @Sealbark3 @Sealhappy3 ) pitch = random( @80 @90 @100 ) 
+@@ -1703,3 +1742 @@
+-    Obj_PlayStream random( @
+-    Sealbark4 Pitch = random( @80 @85 @90 @95 @100 ) 
+-    @Sealhappy Pitch = random( @80 @85 @90 @95 @100 ) 
++    Obj_PlayStream random( @Sealbark4 @Sealhappy ) pitch = random( @80 @85 @90 @95 @100 ) 
+@@ -1932 +1969 @@
+-  PlayStream HitPenguin
++  PlayStream HitPenguin vol = 50
+@@ -1957 +1994 @@
+-  PlayStream HitPenguin
++  PlayStream HitPenguin vol = 50
+@@ -1990 +2027 @@
+-    PlayStream HitPenguin
++    PlayStream HitPenguin vol = 65
+@@ -2116,2 +2152,0 @@
+-          PauseSkaters
+-          PauseClock
+@@ -2119,8 +2153,0 @@
+-          begin
+-            if SkaterCamAnimFinished name = CAM_GORILLA
+-              UnPauseClock
+-              UnPauseSkaters
+-              break
+-            endif
+-            Wait 2 frames
+-          repeat
+@@ -2152,2 +2178,0 @@
+-          PauseSkaters
+-          PauseClock
+@@ -2155,8 +2179,0 @@
+-          begin
+-            if SkaterCamAnimFinished name = CAM_GORILLA
+-              UnPauseClock
+-              UnPauseSkaters
+-              break
+-            endif
+-            Wait 2 frames
+-          repeat
+@@ -2188,2 +2204,0 @@
+-  PauseSkaters
+-  PauseClock
+@@ -2191,8 +2205,0 @@
+-  begin
+-    if SkaterCamAnimFinished name = CAM_GORILLA
+-      UnPauseClock
+-      UnPauseSkaters
+-      break
+-    endif
+-    Wait 2 frames
+-  repeat
+@@ -3840 +3847 @@
+-endscript
++endscript
+\ No newline at end of file

@@ -1,0 +1,38 @@
+--- D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Sch_Scripts - Copy.q	Sat Apr 25 14:23:56 2026
++++ D:/Programs/thps-modding-resources-main/Tools/ThpsQScriptEd/Rev3/Skip-Cutscenes/data/Levels/Sch_Scripts.q	Sat Apr 25 10:26:50 2026
+@@ -1326 +1415,4 @@
+-    @PlayStream random( @
++    @
++    @
++  )
++  PlayStream random( @
+@@ -1334 +1425,0 @@
+-    @
+@@ -1492,0 +1604,3 @@
++  <numcy> = random ( @1 @2 @3 )
++  <numcy2> = random ( @1 @2 @3 )
++  <numcy3> = random ( @3 @8 @10 @14 )
+@@ -1496 +1610 @@
+-    Obj_CycleAnim Anim = Ped_FB_RunningInPlace numcycles = random( @1 @2 @3 ) 
++    Obj_CycleAnim Anim = Ped_FB_RunningInPlace NumCycles = <numcy>
+@@ -1498 +1612 @@
+-    Obj_CycleAnim Anim = Ped_FB_ReadyStance numcycles = random( @1 @2 @3 ) 
++    Obj_CycleAnim Anim = Ped_FB_ReadyStance NumCycles = <numcy2>
+@@ -1505 +1619 @@
+-    Obj_CycleAnim Anim = Ped_FB_RunForward numcycles = random( @3 @8 @10 @14 ) 
++    Obj_CycleAnim Anim = Ped_FB_RunForward NumCycles = <numcy3>
+@@ -1510 +1624 @@
+-    
++    )
+@@ -1855 +1995 @@
+-    Wait 1 second
++    Wait 1 Frame
+@@ -1864 +2004 @@
+-    Wait 1 second
++    Wait 1 Frame
+@@ -2918,5 +3210,0 @@
+-      Obj_WaitAnimFinished
+-      Obj_PlayAnim Anim = Ped_M_Talk2
+-      if CD
+-        Wait 2 second
+-      endif
