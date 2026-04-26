@@ -1,0 +1,19 @@
+I'm honestly not sure what pre-existing license these mods would apply for (especially `Fix-Stutter`), but I still wanna write a License or Terms and Agreements section of some sort so people don't think they can just do *literally anything* with my mods/code
+
+YOU ARE ALLOWED TO DO THE FOLLOWING WITH THESE SCRIPTS AND CODE:
+- Redistribute the code for non-commercial purposes
+- Edit and make any changes to the code
+- Install the software on any device
+- Create forks of the repo, including going offsite from github
+- Suggest and submit pull/commit requests to this repo
+- Port the code/scripts to any game
+- Use code as a reference for making your own mods/code
+- Feature the mod/code in Video/Image/Article content, regardless of commercial use (this will be considered fair use)
+
+YOU ARE NOT ALLOWED TO DO THE FOLLOWING:
+- Redistribute, Fork or Edit the code while removing/not including credit to the original developer (ILC)
+- Redistribute the code for commercial purposes or any monetary purposes
+- Claim that you or someone else created/developed the mod that's not mentioned on the page or commit logs (Mention of mod/tool developers that helped influence THPS4 modding are an exception)
+- Claim that you are the sole developer of the code just because a pull request or bug report was merged/solved
+
+FIX-STUTTER IS A REDISTRIBUTION OF 1.9z-binkw32.dll, INCLUDED IN THIS REPO FOR THE SAKE OF CONVIENCE. LINK TO SOURCE: https://github.com/vogonsorg/radgametools
