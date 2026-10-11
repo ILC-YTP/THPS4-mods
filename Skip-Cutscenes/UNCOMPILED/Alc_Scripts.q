@@ -2283,7 +2283,7 @@ script alc_HitTarget score = 10
     endif
   endif
 endscript
-script Alc_Goal_Gaps6_End_Early
+script Alc_Goal_Gaps6_End_Early // Menu selection to finish Bullseye Launch when you have the required score, will force fail goal if under required score
   IF ObjectExists id = current_menu_anchor
     exit_pause_menu 
   ENDIF

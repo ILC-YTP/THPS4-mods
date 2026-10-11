@@ -2079,7 +2079,7 @@ script CJR_SF2_Idiot
     @Obj_PlayStream husband_far13 Vol = 200 Dropoff = 300
     @Obj_PlayStream husband_far14 Vol = 200 Dropoff = 300
    ) 
-    If GetFlag flag = SEAL_GOAL_SKIP_ENDING
+    If GetFlag flag = SEAL_GOAL_SKIP_ENDING // If I remember correctly this might be a failsafe if the cutscene at the end of Feed the 4 Angry Sea Lions is skipped
       Wait 2 seconds
       break
     endif
@@ -2540,14 +2540,14 @@ script sf2_wife_reacting ID = WifeReact
   Obj_ClearFlag OBJFLAG_SEAL04
   Goto SF2_Wife_Checking
 endscript
-script SF2_Wife_Kill_Dialog
+script SF2_Wife_Kill_Dialog // This prompt appears when you drop fish into the water
   create_speech_box {
-    Text = "Press FUCK to skip"
+    Text = "Press \m0 to skip"
     pad_choose_script = SF2_Wife_Kill_Activate
     pad_choose_params = { Bait_Camera = <Bait_Camera> }
   }
 endscript
-script SF2_Wife_Kill_Activate
+script SF2_Wife_Kill_Activate // Skips cutscenes of sealions eating fish
   PlaySkaterCamAnim Skater = 0 stop
   KillSpawnedScript ID = Wife_React
   KillSkaterCamAnim skaterId = 0

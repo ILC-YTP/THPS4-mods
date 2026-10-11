@@ -476,7 +476,7 @@ script goal_play_cam_anim
     event_handlers = [ { pad_start nullscript } ]
     replace_handlers
   }
-  If GotParam goal_start_movie_script
+  If GotParam goal_start_movie_script // This is mainly for the Free Stompy Goal cause I could not find a way to skip the cutscenes before they start playing, so this works as a buffer till the first camera activates.
     SpawnScript TemporarilyDisableInput params = { time = 2000 }
     else
     SpawnScript TemporarilyDisableInput
@@ -787,7 +787,7 @@ script goal_description_and_speech_continue
     KillSkaterCamAnim skaterId = <ObjId> name = <Anim>
     endif
   KillSpawnedScript ID = sf2_special
-  Kill ID = TRG_G_SPECIALTrick_Husband
+  Kill ID = TRG_G_SPECIALTrick_Husband // This and the above line are needed to actually end the cutscene correctly for the mission Darkslide the Waterslide Railing in SanFran
   speech_box_exit anchor_id = goal_description_anchor
 endscript
 
@@ -1725,7 +1725,7 @@ script goal_give_rewards
     if not GotParam already_added_trickslot
       AwardSpecialTrickSlot all
     endif
-    goal_got_trickslot
+    goal_got_trickslot // Below this line used to be instructions to pause the game and show the stats menu after obtaining a new stat point
   endif
   if GotParam awarded_goal_point
     GoalManager_GetNumberOfGoalPoints total
@@ -3193,7 +3193,7 @@ endscript
 
 script panel_message_new_record
   SetProps font = small just = [ center center ] rgba = [ 125 123 7 128 ]
-  DoMorph time = 0 pos = (320, 100) scale = 0 alpha = 0
+  DoMorph time = 0 pos = (320, 100) scale = 0 alpha = 0 // Moves the new record text lower to prevent it from overlapping with other reward text, as they now all appear at the same time.
   DoMorph time = 0.5 alpha = 1
   if GotParam sound
     PlaySound <sound> vol = 150
@@ -3213,7 +3213,7 @@ script panel_message_new_record
   Die
 endscript
 
-script panel_message_debug
+script panel_message_debug // Unused, likely just me testing and using this as a visual signal something triggered
   SetProps font = large just = [ center center ] rgba [ 255 0 0 128]
 endscript
 
@@ -3337,7 +3337,7 @@ script panel_message_tips blink_time = 0.05
   repeat 6
 endscript
 
-script panel_message_kongoal blink_time = 0.05 final_pos = (620, 100)
+script panel_message_kongoal blink_time = 0.05 final_pos = (620, 100) // This is the text animation that's used when the goal requirements for King of Kona and Bullseye Launch, allowing the goals to be completed early without waiting for the timer or use the rest of your ramp attempts
   SetProps internal_just = [ center top ] rgba = [ 128 64 128 100 ] just = [ right top ]
   DoMorph pos = <final_pos> scale = 0.78 time = 0.05
   begin
@@ -3362,7 +3362,7 @@ endscript
 
 script goal_message_got_trickslot
   SetProps rgba = [ 43 95 53 128 ]
-  DoMorph time = 0 pos = (320, 320) scale = 0 alpha = 0
+  DoMorph time = 0 pos = (320, 320) scale = 0 alpha = 0 // text moved to prevent overlapping as all reward texts now show at the same time
   DoMorph time = 0.5 alpha = 1
   if GotParam sound
     PlaySound <sound> vol = 150

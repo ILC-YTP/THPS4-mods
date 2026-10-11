@@ -625,11 +625,11 @@ SCRIPT create_pause_menu
       ENDIF
     ENDIF
     IF GoalManager_CanRetryGoal
-      IF GoalManager_GoalIsActive name = kon_goal_tour
+      IF GoalManager_GoalIsActive name = kon_goal_tour // Selection to skip King of Kona if above the required score
         make_sprite_menu_item text = "End Goal Early" id = menu_end_run2 pad_choose_script = Kon_Goal_Tour_Expire_3
         make_text_sprite texture = PA_end parent = menu_end_run2
       endif
-      IF GoalManager_GoalIsActive name = Alc_Goal_Gaps6
+      IF GoalManager_GoalIsActive name = Alc_Goal_Gaps6 // Selection to skip Bullseye Launch if above the required score
         make_sprite_menu_item text = "End Goal Early" id = menu_end_run2 pad_choose_script = Alc_Goal_Gaps6_End_Early
         make_text_sprite texture = PA_end parent = menu_end_run2
       endif

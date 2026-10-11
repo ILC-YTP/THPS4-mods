@@ -2260,7 +2260,7 @@ script Jnk_Gap3_GoHigher
     endif
   endif
 endscript
-script JNK_GAP3_SKIPCUT_DIALOG
+script JNK_GAP3_SKIPCUT_DIALOG // Special script to deactivate the cutscene of the cranes and containers moving in Gap across the suspended containers, a special spawn point is needed too which is why jnk.q was modified
   create_speech_box {
     Text = "Press \m0 to skip"
     pad_choose_script = JNK_GAP3_SKIPCUT_ACTIVATE

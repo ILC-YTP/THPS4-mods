@@ -879,7 +879,7 @@ script Lon_Stompy_CheckIntro
   UnSetFlag flag = FLAG_LON_ELE_INTROFINISHED
   UnSetFlag flag = FLAG_LON_ELE_SPEECHSKIPPED
 endscript
-script Lon_Stompy_SkipIntro_dialog
+script Lon_Stompy_SkipIntro_dialog // This is jank as it is. I couldn't get the Stompy cutscenes to deactivate within one function, nor could I get them to deactivate before the first camera of the cutscene starts. If you attempt to skip the Free Stompy cutscene, it will just stop the person from talking and this text box will appear. You have to press X again to actually skip the cutscene. Also it appears when you retry the mission. Maybe an extra If statement is needed. Please read line 479 in goal_utilities.q for the buffer that times up with the first cutscene camera activating
   create_speech_box {
     Text = "Press \m0 to skip"
     pad_choose_script = Lon_Stompy_SkipIntro_activate

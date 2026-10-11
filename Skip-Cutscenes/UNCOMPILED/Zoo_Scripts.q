@@ -1443,7 +1443,7 @@ script Zoo_Scare_Elephant_Skip_Dialog ID = skipstompydialog
     pad_choose_script = Zoo_Scare_Elephant_Skip_Activate
   }
 endscript
-script Zoo_Scare_Elephant_Skip_Activate ID = skippingstompy
+script Zoo_Scare_Elephant_Skip_Activate ID = skippingstompy // Skip the Stompy Smashing up the zoo cutscene while also ensuring level objects change to their post-smashed state
   speech_box_exit
   KillSkaterCamAnim name = CAM_ELEPHANT
   KillSkaterCamAnim name = CAM_ELEPHANT2
@@ -1966,7 +1966,7 @@ script Zoo_Penguin_Idle_Fall
   Obj_ClearExceptions
   Obj_SetException ex = SkaterOutOfRadius scr = Zoo_Penguin_Idle
   Obj_SetOuterRadius 10
-  PlayStream HitPenguin vol = 50
+  PlayStream HitPenguin vol = 50 // I personally think the penguins are way too loud, so I lowered their volume when you hit em
   Obj_CycleAnim anim = KnockDown
   Obj_PlayAnim anim = Struggling cycle
 endscript

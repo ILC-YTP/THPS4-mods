@@ -984,7 +984,7 @@ script Kon_Goal_Tour_Expire_2
     GoalManager_NextTourSpot Name = kon_goal_tour
   endif
 endscript
-script Kon_Goal_Tour_Expire_3
+script Kon_Goal_Tour_Expire_3 // Menu selction script to complete the goal early if at the required score
   IF ObjectExists id = current_menu_anchor
     exit_pause_menu 
   ENDIF
