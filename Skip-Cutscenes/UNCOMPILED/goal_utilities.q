@@ -1726,7 +1726,6 @@ script goal_give_rewards
       ForEachIn master_skater_list do = goal_award_stat_point
     repeat <reward_stat>
     goal_got_stat reward_stat = <reward_stat>
-    endif
   endif
   if GotParam awarded_goal_point
     GoalManager_GetNumberOfGoalPoints total
