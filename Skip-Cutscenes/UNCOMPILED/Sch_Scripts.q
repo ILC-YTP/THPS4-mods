@@ -1404,26 +1404,16 @@ SCRIPT Sch_Car_Viper_Stolen_Start
   BEGIN
     Sch_Gaps3_CheckForSkitch
     Wait 10 frames
-    random( @
-    
-    @
-    @
-    @
-    @
-    @
-    @
-    @
-    @
-  )
-  PlayStream random( @
-    carthief_sch_random01
-    @carthief_sch_random02
-    @carthief_sch_random03
-    @carthief_sch_random04
-    @carthief_sch_random05
-    @carthief_sch_random06
-     ) 
-    
+    GetRandomValue name = theifline integer a = 1 b = 9
+    IF ( <theifline> = 9 )
+      PlayStream random( @
+      carthief_sch_random01
+      @carthief_sch_random02
+      @carthief_sch_random03
+      @carthief_sch_random04
+      @carthief_sch_random05
+      @carthief_sch_random06 ) 
+    ENDIF    
   REPEAT
   Obj_WaitMove
   Printf "car at end of path"

@@ -1704,6 +1704,12 @@ script goal_give_rewards
     goal_got_cash amount = <cash>
     pause_trick_text
   endif
+  if GotParam reward_trickslot
+    if not GotParam already_added_trickslot
+      AwardSpecialTrickSlot all
+    endif
+    goal_got_trickslot
+  endif
   if ( ( GotParam cash ) or ( GotParam reward_trickslot ) )
     create_speech_box {
       text = "Press \m0 to continue"
@@ -1720,12 +1726,7 @@ script goal_give_rewards
       ForEachIn master_skater_list do = goal_award_stat_point
     repeat <reward_stat>
     goal_got_stat reward_stat = <reward_stat>
-  endif
-  if GotParam reward_trickslot
-    if not GotParam already_added_trickslot
-      AwardSpecialTrickSlot all
     endif
-    goal_got_trickslot // Below this line used to be instructions to pause the game and show the stats menu after obtaining a new stat point
   endif
   if GotParam awarded_goal_point
     GoalManager_GetNumberOfGoalPoints total
@@ -3362,8 +3363,8 @@ endscript
 
 script goal_message_got_trickslot
   SetProps rgba = [ 43 95 53 128 ]
-  DoMorph time = 0 pos = (320, 320) scale = 0 alpha = 0 // text moved to prevent overlapping as all reward texts now show at the same time
-  DoMorph time = 0.5 alpha = 1
+  DoMorph time = 0 pos = (320, 200) scale = 0 alpha = 0 // text moved to prevent overlapping as all reward texts now show at the same time
+  DoMorph time = 0.1 alpha = 1
   if GotParam sound
     PlaySound <sound> vol = 150
   endif
@@ -3372,10 +3373,10 @@ script goal_message_got_trickslot
   DoMorph time = 0.1 scale = 1.2
   DoMorph time = 0.1 scale = 0.9
   DoMorph time = 0.1 scale = 1.0
-  DoMorph pos = (321, 321) time = 0.1
-  DoMorph pos = (319, 319) time = 0.1
-  DoMorph pos = (321, 321) time = 0.1
-  DoMorph pos = (319, 319) time = 0.1
+  DoMorph pos = (321, 201) time = 0.1
+  DoMorph pos = (319, 199) time = 0.1
+  DoMorph pos = (321, 201) time = 0.1
+  DoMorph pos = (319, 199) time = 0.1
   DoMorph time = 0.1 scale = 1.4
   DoMorph time = 0.15 scale = 0 alpha = 0
   Die
